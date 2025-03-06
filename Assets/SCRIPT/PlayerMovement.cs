@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] int runspeed = 3;
     [SerializeField] float jumpForce = 10f;
+    [SerializeField] int numofjumleft = 0;
 
     Rigidbody2D rb;
+    PlayerController controller;
     Animator animator;
     bool isGrounded;
 
@@ -15,12 +17,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        controller = GetComponent<PlayerController>();
     }
 
     void Update()
     {
         // Stop the run animation when no movement keys are pressed
-        if (isGrounded && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if (isGrounded && !controller.isright && !controller.isleft)
         {
             animator.SetBool("Run", false);
         }
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            numofjumleft = 1;
             animator.SetBool("Jump", false); // Stop jump animation when landing
         }
     }
@@ -63,10 +67,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (isGrounded)
+        if (numofjumleft>0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetBool("Jump", true);
+            numofjumleft--;
         }
     }
 }

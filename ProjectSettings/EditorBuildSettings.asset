@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/Looby.unity
+    guid: 09a78b2bfbf748548aab62c8de1e66db
+  - enabled: 1
+    path: Assets/Scenes/LevelManagerSpringScene.unity
+    guid: 638aa79ca97dc62418e301a28d8f3f1e
+  - enabled: 1
+    path: Assets/Scenes/1.unity
+    guid: 1abf00d37e215334eb4d09dba662ea0b
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: 839cfbeee26cd7c478811186acb48bef
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 81c1a936d6f547d4b94d514a43d92a0f, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 05f4b48307d8ada469d5cc7c392f8dab, type: 2}
+  m_UseUCBPForAssetBundles: 0
